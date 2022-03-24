@@ -1,5 +1,5 @@
 ### Preamble ###
-# Purpose: Obtain and prepare data about childern 12 to 59 months of age according to immunization 
+# Purpose: Obtain and prepare data about children 12 to 59 months of age according to immunization 
 # status and method of reporting immunization status, by selected background characteristics. 
 # Author: SangWoong Lee and Young Suk
 # Email: sangwoong.lee@mail.utoronto.ca and young.suk@mail.utoronto.ca
@@ -12,7 +12,7 @@ library(lubridate)
 library(tidyverse)
 
 set.seed(777)
-
+sample_size <- 3000
 simulated_immunization_data <- 
   tibble(
     variables = 
@@ -42,7 +42,7 @@ simulated_immunization_data <-
     immunization = Mother_record + Health_record,
     non_immunization = 100 - immunization
   )
-simulated_immunization_data
+
 
 
 
