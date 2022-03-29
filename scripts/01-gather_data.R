@@ -86,4 +86,7 @@ get_data <- function(text){
   
   return(immune_data)
 }
-cleaned_data <- get_data(text)
+extracted_data <- get_data(text)
+
+#### Save ####
+write_csv(extracted_data, "inputs/data/extracted_data.csv")
