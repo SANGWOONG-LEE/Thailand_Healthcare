@@ -55,7 +55,8 @@ get_data <- function(text){
     mutate_at(vars(Health_Record, Mothers_Report, Received_Immunization, Not_Received_Immunization, Total_Percent, Number_of_Children), ~str_remove_all(., ",")) |>
     #mutate_at(vars(Health_Record, Mothers_Report, Received_Immunization, Not_Received_Immunization, Total_Percent, Number_of_Children), ~str_replace(., "_", "0")) |>
     #mutate_at(vars(Health_Record, Mothers_Report, Received_Immunization, Not_Received_Immunization, Total_Percent, Number_of_Children), ~str_replace(., "-", "0")) |>
-    mutate_at(vars(Health_Record, Mothers_Report, Received_Immunization, Not_Received_Immunization, Total_Percent, Number_of_Children), ~as.double(.))
+    mutate_at(vars(Health_Record, Mothers_Report, Received_Immunization, Not_Received_Immunization, Total_Percent, Number_of_Children), ~as.double(.)) |>
+    column_to_rownames(var = "Variable")
   
   # They are side by side at the moment, need to append to bottom
   # demography_data_long <-
