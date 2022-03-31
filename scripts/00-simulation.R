@@ -72,4 +72,10 @@ simulated_immunization_data$non_immunization |>  max() <= 100
 simulated_immunization_data$number_of_childeren |> min() >= 0
 simulated_immunization_data$Health_record + simulated_immunization_data$Mother_record == simulated_immunization_data$immunization
 100 - simulated_immunization_data$immunization == simulated_immunization_data$non_immunization
+simulated_immunization_data$variables |> class() =='character'
+simulated_immunization_data$Health_record |> class() =='numeric'
+simulated_immunization_data$Mother_record |> class() =='numeric'
+simulated_immunization_data$immunization |> class() =='numeric'
+simulated_immunization_data$non_immunization |> class() =='numeric'
+simulated_immunization_data$number_of_childeren |> class() =='numeric'
 
