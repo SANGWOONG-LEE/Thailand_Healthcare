@@ -36,8 +36,9 @@ data <- read_csv("outputs/data/cleaned_data.csv")
 
 ```{r}
 data %>%
-  ggplot(aes(x = , y = Health_Record)) +
-           geom_bar()
+  ggplot(aes(x = Variable, y = Health_Record)) +
+  geom_bar(stat='identity') +
+  coord_flip()
 ```
 
 Talk more about it.
@@ -46,14 +47,6 @@ Also bills and their average (Figure \@ref(fig:billssssss)). (Notice how you can
 
 ```{r}
 
-# This needs to be about the random data tha tI sasmpled?
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = FALSE) +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
 ```
 
 Talk way more about it. 
