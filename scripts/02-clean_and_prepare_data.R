@@ -9,6 +9,7 @@
 
 #### Workspace setup ####
 library(tidyverse)
+library(pointblank)
 # Read in the raw data. 
 extracted_data <- read_csv("inputs/data/extracted_data.csv")
 
@@ -27,7 +28,9 @@ column_names_as_contracts <-
     "int_Received_Immunization" = "Received_Immunization",
     "int_Not_Received_Immunization" = "Not_Received_Immunization",
     "int_Childeren_Count" = "Number_of_Children",
-  )
+  ) |>
+  mutate(total_calculated = int_Health_Record + int_Mothers_Report) |>
+  mutate(no_immune_calculated = 100 - int_Received_Immunization)
 agent <-
   create_agent(tbl = column_names_as_contracts) |>
   col_is_character(columns = vars(chr_variable)) |>
@@ -42,6 +45,8 @@ agent <-
                   set = c("Urban", "Rural", "North","NorthEast","Central","South",
                           "Bangkok","No Education","Primary","Secondary","Higher","Buddhist"
                           ,"Islam","Total")) |>
+  col_vals_equal(vars(total_calculated), vars(int_Received_Immunization))|>
+  col_vals_equal(vars(no_immune_calculated), vars(int_Not_Received_Immunization))|>
   interrogate()
 
 agent
