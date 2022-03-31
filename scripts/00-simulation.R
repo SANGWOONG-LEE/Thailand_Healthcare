@@ -98,8 +98,18 @@ simulated_religion <-
     number_of_childeren = 
       rmultinom(n = 1, size = 3000, prob = rep(1/2, 2))
   )
-
-simulated_immunization_data <- rbind(simulated_urban_rural, simulated_region, simulated_education, simulated_religion)
+simulated_total <- 
+  tibble(
+    variables = rep('total',1),
+    Health_record = (simulated_urban_rural$number_of_childeren[1] * (simulated_urban_rural$Health_record[1] *0.01)
+    + simulated_urban_rural$number_of_childeren[2] * (simulated_urban_rural$Health_record[2] *0.01)) / 3000 * 100,
+    Mother_record = (simulated_urban_rural$number_of_childeren[1] * (simulated_urban_rural$Mother_record[1] *0.01)
+                     + simulated_urban_rural$number_of_childeren[2] * (simulated_urban_rural$Mother_record[2] *0.01)) / 3000 * 100,
+    immunization = Mother_record + Health_record,
+    non_immunization = 100 - immunization,
+    number_of_childeren = 3000
+  )
+simulated_immunization_data <- rbind(simulated_urban_rural, simulated_region, simulated_education, simulated_religion,simulated_total)
   
 simulated_immunization_data$variables |>
   unique() == c('Urban',
