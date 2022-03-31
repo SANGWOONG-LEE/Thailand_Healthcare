@@ -13,39 +13,102 @@ library(tidyverse)
 
 set.seed(777)
 sample_size <- 3000
-simulated_immunization_data <- 
+simulated_urban_rural <- 
   tibble(
     variables = 
       c(
         rep('Urban',1),
-        rep('Rural',1),
-        rep('North',1),
-        rep('Northeast',1),
-        rep('Central',1),
-        rep('South',1),
-        rep('Bangkok',1),
-        rep('No_education',1),
-        rep('Primary',1),
-        rep('Secondary',1),
-        rep('Higher',1),
-        rep('Buddhist',1),
-        rep('Islam',1)
+        rep('Rural',1)
       ),
     Health_record = 
-      runif(n=13,
+      runif(n=2,
             min = 0,
             max = 100),
     Mother_record = 
-      runif(n= 13,
+      runif(n= 2,
             min = 0,
             max = 100 -Health_record),
     immunization = Mother_record + Health_record,
     non_immunization = 100 - immunization,
     number_of_childeren = 
-      runif(n = 13,
+      runif(n = 2,
             min = 0,
             max = 3000) |> round()
   )
+simulated_region <- 
+  tibble(
+    variables = 
+      c(
+        rep('North',1),
+        rep('Northeast',1),
+        rep('Central',1),
+        rep('South',1),
+        rep('Bangkok',1)
+      ),
+    Health_record = 
+      runif(n=5,
+            min = 0,
+            max = 100),
+    Mother_record = 
+      runif(n= 5,
+            min = 0,
+            max = 100 -Health_record),
+    immunization = Mother_record + Health_record,
+    non_immunization = 100 - immunization,
+    number_of_childeren = 
+      runif(n = 5,
+            min = 0,
+            max = 3000) |> round()
+  )
+simulated_education <- 
+  tibble(
+    variables = 
+      c(
+        rep('No_education',1),
+        rep('Primary',1),
+        rep('Secondary',1),
+        rep('Higher',1)
+      ),
+    Health_record = 
+      runif(n=4,
+            min = 0,
+            max = 100),
+    Mother_record = 
+      runif(n= 4,
+            min = 0,
+            max = 100 -Health_record),
+    immunization = Mother_record + Health_record,
+    non_immunization = 100 - immunization,
+    number_of_childeren = 
+      runif(n = 4,
+            min = 0,
+            max = 3000) |> round()
+  )
+simulated_religion <- 
+  tibble(
+    variables = 
+      c(
+        rep('Buddhist',1),
+        rep('Islam',1)
+      ),
+    Health_record = 
+      runif(n=2,
+            min = 0,
+            max = 100),
+    Mother_record = 
+      runif(n= 2,
+            min = 0,
+            max = 100 -Health_record),
+    immunization = Mother_record + Health_record,
+    non_immunization = 100 - immunization,
+    number_of_childeren = 
+      runif(n = 2,
+            min = 0,
+            max = 3000) |> round()
+  )
+
+simulated_immunization_data <- rbind(simulated_urban_rural, simulated_region, simulated_education, simulated_religion)
+  
 simulated_immunization_data$variables |>
   unique() == c('Urban',
                 'Rural',
