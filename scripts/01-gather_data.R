@@ -28,6 +28,7 @@ get_data <- function(text){
     mutate(raw_text = str_replace(raw_text, "No education", "NoEducation")) |>
     mutate(raw_text = str_replace(raw_text, "15-1", "15.1")) |>
     mutate(raw_text = str_replace(raw_text, "Islan", "Islam")) |>
+    mutate(raw_text = str_replace(raw_text, "10.6", "70.6")) |>
     separate(col = raw_text,
              into = c("Variable", "Health_Record", "Mothers_Report", "Received_Immunization", "Not_Received_Immunization", "Total_Percent", "Number_of_Children"),
              sep = " ", # Works fine because the tables are nicely laid out
