@@ -40,9 +40,36 @@ simulated_immunization_data <-
             min = 0,
             max = 100 -Health_record),
     immunization = Mother_record + Health_record,
-    non_immunization = 100 - immunization
+    non_immunization = 100 - immunization,
+    number_of_childeren = 
+      runif(n = 13,
+            min = 0,
+            max = 3000) |> round()
   )
-
-
-
+simulated_immunization_data$variables |>
+  unique() == c('Urban',
+                'Rural',
+                'North',
+                'Northeast',
+                'Central',
+                'South',
+                'Bangkok',
+                'No_education',
+                'Primary',
+                'Secondary',
+                'Higher',
+                'Buddhist',
+                'Islam')
+simulated_immunization_data$variables |> unique() |> length() == 13
+simulated_immunization_data$Health_record |>  min() >= 0 
+simulated_immunization_data$Health_record |>  max() <= 100
+simulated_immunization_data$Mother_record |>  min() >= 0 
+simulated_immunization_data$Mother_record |>  max() <= 100
+simulated_immunization_data$immunization |>  min() >= 0 
+simulated_immunization_data$immunization |>  max() <= 100
+simulated_immunization_data$non_immunization |>  min() >= 0 
+simulated_immunization_data$non_immunization |>  max() <= 100
+simulated_immunization_data$number_of_childeren |> min() >= 0
+simulated_immunization_data$Health_record + simulated_immunization_data$Mother_record == simulated_immunization_data$immunization
+100 - simulated_immunization_data$immunization == simulated_immunization_data$non_immunization
 
