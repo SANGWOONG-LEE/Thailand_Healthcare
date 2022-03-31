@@ -35,7 +35,9 @@ data <- read_csv("outputs/data/cleaned_data.csv")
 
 
 ```{r}
-
+data %>%
+  ggplot(aes(x = , y = Health_Record)) +
+           geom_bar()
 ```
 
 Talk more about it.

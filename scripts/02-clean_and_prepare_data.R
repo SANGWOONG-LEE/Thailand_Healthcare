@@ -15,8 +15,7 @@ extracted_data <- read_csv("inputs/data/extracted_data.csv")
 #### Data Cleaning ####
 
 # Only keep useful columns by removing total percent column.
-cleaned_data <- extracted_data  |> select(-c(Total_Percent)) |>
-  column_to_rownames(var = "Variable")
+cleaned_data <- extracted_data  |> select(-c(Total_Percent))
 
 
 view(cleaned_data)
