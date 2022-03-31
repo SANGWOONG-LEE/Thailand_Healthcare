@@ -1,23 +1,24 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
+title: "Disagreement Regarding 2016 Presidential Election in the United States^[Code and data are available at: https://github.com/SANGWOONG-LEE/Thailand_Healthcare]"
+subtitle: "Possible factors effecting 2016 election"
 author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
+  - SangWoong Lee
+  - Young Suk
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "This paper has been examined possible variables that influenced U.S citizens' choice for the 2016 U.S presidential election. We have found that there exists significantly different opinions regarding gender, wealth, race and age. This is important in a sesne that it shows thought trends as well as crucial decision indicators for voting in U.S.,With further survey at the end of this paper, we are going to explore whether this is happening only in U.S or not."
 output:
-  bookdown::pdf_document2
+  bookdown::pdf_document2:
+    fig_caption: yes
 toc: FALSE
 bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 library(tidyverse)
-library(palmerpenguins)
+library(dplyr)
+library(knitr)
 ```
 
 # Introduction
@@ -27,24 +28,21 @@ You can and should cross-reference sections and sub-sections. For instance, Sect
 
 
 # Data
+```{r, include=FALSE, echo=FALSE}
+# Read the extracted and cleaned data, data extraction done in 01-gather-data.R and modification done in 02-clean-and-prepare-data.R
+data <- read_csv("outputs/data/cleaned_data.csv")
+```
 
-Our data is of penguins (Figure \@ref(fig:bills)).
 
-```{r bills, fig.cap="Bills of penguins", echo = FALSE}
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = FALSE) +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
+```{r}
+
 ```
 
 Talk more about it.
 
 Also bills and their average (Figure \@ref(fig:billssssss)). (Notice how you can change the height and width so they don't take the whole page?)
 
-```{r billssssss, fig.cap="More bills of penguins", echo = FALSE, fig.width=8, fig.height=4}
+```{r}
 
 # This needs to be about the random data tha tI sasmpled?
 ggplot(penguins, aes(x = island, fill = species)) +

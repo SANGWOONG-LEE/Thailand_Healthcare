@@ -14,8 +14,12 @@ extracted_data <- read_csv("inputs/data/extracted_data.csv")
 
 #### Data Cleaning ####
 
-# Only keep useful columns
-cleaned_data <- extracted_data %>%
-  select("Health_Record", "Mothers_Report", "Received_Immunization", "Not_Received_Immunization", "Number_of_Children")
+# Only keep useful columns by removing total percent column.
+cleaned_data <- extracted_data  |> select(-c(Total_Percent)) |>
+  column_to_rownames(var = "Variable")
+
+
+view(cleaned_data)
 
 #### Save ####
+write_csv(cleaned_data, "outputs/data/cleaned_data.csv")
