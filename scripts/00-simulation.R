@@ -31,9 +31,7 @@ simulated_urban_rural <-
     immunization = Mother_record + Health_record,
     non_immunization = 100 - immunization,
     number_of_childeren = 
-      runif(n = 2,
-            min = 0,
-            max = 3000) |> round()
+      rmultinom(n = 1, size = 3000, prob = rep(1/2, 2))
   )
 simulated_region <- 
   tibble(
@@ -56,9 +54,7 @@ simulated_region <-
     immunization = Mother_record + Health_record,
     non_immunization = 100 - immunization,
     number_of_childeren = 
-      runif(n = 5,
-            min = 0,
-            max = 3000) |> round()
+      rmultinom(n = 1, size = 3000, prob = rep(1/5, 5))
   )
 simulated_education <- 
   tibble(
@@ -80,9 +76,7 @@ simulated_education <-
     immunization = Mother_record + Health_record,
     non_immunization = 100 - immunization,
     number_of_childeren = 
-      runif(n = 4,
-            min = 0,
-            max = 3000) |> round()
+      rmultinom(n = 1, size = 3000, prob = rep(1/4, 4))
   )
 simulated_religion <- 
   tibble(
@@ -102,9 +96,7 @@ simulated_religion <-
     immunization = Mother_record + Health_record,
     non_immunization = 100 - immunization,
     number_of_childeren = 
-      runif(n = 2,
-            min = 0,
-            max = 3000) |> round()
+      rmultinom(n = 1, size = 3000, prob = rep(1/2, 2))
   )
 
 simulated_immunization_data <- rbind(simulated_urban_rural, simulated_region, simulated_education, simulated_religion)
