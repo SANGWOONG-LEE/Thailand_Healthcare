@@ -35,12 +35,17 @@ data <- read_csv("outputs/data/cleaned_data.csv")
 
 
 ```{r}
-data %>%
-  ggplot(aes(x = Variable, y = Health_Record)) +
-  geom_bar(stat='identity') +
-  coord_flip()
+ggplot(data[1:2,], aes(x = Variable, y = Health_Record)) + geom_bar(stat='identity') + facet_wrap(~Mothers_Report)
 ```
-
+```{r}
+ggplot(data[3:7,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
+```
+```{r}
+ggplot(data[8:11,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
+```
+```{r}
+ggplot(data[12:13,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
+```
 Talk more about it.
 
 Also bills and their average (Figure \@ref(fig:billssssss)). (Notice how you can change the height and width so they don't take the whole page?)
