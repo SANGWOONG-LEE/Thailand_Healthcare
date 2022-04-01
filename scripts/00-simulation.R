@@ -31,7 +31,7 @@ simulated_urban_rural <-
     immunization = Mother_record + Health_record,
     non_immunization = 100 - immunization,
     number_of_childeren = 
-      rmultinom(n = 1, size = 3000, prob = rep(1/2, 2))
+      as.numeric(rmultinom(n = 1, size = 3000, prob = rep(1/2, 2)))
   )
 simulated_region <- 
   tibble(
@@ -54,7 +54,7 @@ simulated_region <-
     immunization = Mother_record + Health_record,
     non_immunization = 100 - immunization,
     number_of_childeren = 
-      rmultinom(n = 1, size = 3000, prob = rep(1/5, 5))
+      as.numeric(rmultinom(n = 1, size = 3000, prob = rep(1/5, 5)))
   )
 simulated_education <- 
   tibble(
@@ -76,7 +76,7 @@ simulated_education <-
     immunization = Mother_record + Health_record,
     non_immunization = 100 - immunization,
     number_of_childeren = 
-      rmultinom(n = 1, size = 3000, prob = rep(1/4, 4))
+      as.numeric(rmultinom(n = 1, size = 3000, prob = rep(1/4, 4)))
   )
 simulated_religion <- 
   tibble(
@@ -96,7 +96,7 @@ simulated_religion <-
     immunization = Mother_record + Health_record,
     non_immunization = 100 - immunization,
     number_of_childeren = 
-      rmultinom(n = 1, size = 3000, prob = rep(1/2, 2))
+      as.numeric(rmultinom(n = 1, size = 3000, prob = rep(1/2, 2)))
   )
 simulated_total <- 
   tibble(
@@ -125,7 +125,7 @@ simulated_immunization_data$variables |>
                 'Higher',
                 'Buddhist',
                 'Islam')
-simulated_immunization_data$variables |> unique() |> length() == 13
+simulated_immunization_data$variables |> unique() |> length() == 14
 simulated_immunization_data$Health_record |>  min() >= 0 
 simulated_immunization_data$Health_record |>  max() <= 100
 simulated_immunization_data$Mother_record |>  min() >= 0 
