@@ -29,8 +29,9 @@ column_names_as_contracts <-
     "int_Not_Received_Immunization" = "Not_Received_Immunization",
     "int_Childeren_Count" = "Number_of_Children",
   ) |>
-  mutate(total_calculated = int_Health_Record + int_Mothers_Report) |>
-  mutate(no_immune_calculated = 100 - int_Received_Immunization)
+  mutate(total_calculated = round(int_Health_Record + int_Mothers_Report, 1)) |>
+  mutate(no_immune_calculated = round(100 - int_Received_Immunization, 1))
+
 agent <-
   create_agent(tbl = column_names_as_contracts) |>
   col_is_character(columns = vars(chr_variable)) |>
