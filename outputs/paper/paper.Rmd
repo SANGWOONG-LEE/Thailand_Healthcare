@@ -5,7 +5,7 @@ author:
   - SangWoong Lee
   - Young Suk
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "This paper has been examined possible variables that influenced children immunization report cases between healthcare system and mother's report in Thailand. We have found that there exists significant difference regarding communities, region, education level and religion. This is important in a sense that it relates to lives as well as indication for why such gap exits. We will discuss the importance in details at discussion session."
+abstract: "This paper has been examined possible variables that influenced children immunization report cases between healthcare system and mother's reports in Thailand. We have found that there existed significantly different rate regarding communities, region, education level and religion. This is important in a sense that it relates to lives as well as indication for why such gap exited. We will discuss its importance in details later in discussion session."
 output:
   bookdown::pdf_document2:
     fig_caption: yes
@@ -22,24 +22,30 @@ library(knitr)
 ```
 
 # Introduction
+Trust is a big matter in this world. Especially when you need assistance in fields that you are unfamiliar with, trust is the best thing that you can rely on. For instance, if you need a lawyer, the best thing that you can do is to trust your lawyer, and be 100% honest. In medical field, trust is directly related to your life. We are certain that you have observed that many people have been refusing to get COVID-19 vaccines. Then, we started to wonder whether the COVID-19 vaccine controversy is similar to other vaccines that safety are proved and guaranteed such as BCG vaccine for preventing tuberculosis. It is true that we no longer have doubts against them. However, if you move sight to developing country in 1980~1990s, situation would certainly different because of lack of well constructed healthcare system or other reasons. This curiosity triggered us to start this research. 
 
-The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; and 6) why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out.
+This paper is about children immunization reports in 1987, Thailand. Specifically how the rate differs between communities, regions, people with different education levels and religion. Along with that, its cases are divided into reports from mothers and healthcare. There clearly exists limitations and gaps that we are required to fill. First, gap between present and past. We cannot go back to the period and conduct research regarding our focus. Second, thoughts cannot be measured thoroughly. To overcome the limitations, we tried to look for powerful candidates. Among many, we thought that 1987 DHS survey in Thailand specifically regarding children immunization rate from healthcare and mothers with respect to their features would be the best one to represent our interest.
 
-Trust is a big matter in this world. Especially when you need assistance from areas that you are unfamiliar with, trust is the best thing that you can rely on. For instance, if you need a lawyer, the best thing that you can do is trust him/her/the, and be 100% honest to your lawyer. In medical field, trust directly relates to your life. We are certain that you have observed that many people have been refusing to get vaccine for COVID-19. Then, we start to wonder whether the COVID-19 vaccine controversy is similar to other vaccines that are proved and guaranteed safety such as BCG vaccine for preventing tuberculosis. It is true that we no longer have doubts against them. However, we thought that if you move sight to developing country in 1980~1990s, situation would certainly different because of well constructed healthcare system or other reasons. This curiosty triggered us to start this research. 
+Dataset was not open. Instead, the survey presented various tables. Thus, we were required to convert pdf file to csv. After that throughout the analysis of relation between the variables and immunization rate reported by healthcare and mothers, we could observe that there existed significant gap between healthcare and mothers with respect to variables. This is an important finding because it shows that there could be lack of trust toward healthcare system or shortage of healthcare supports in Thailand. Thus, it can indicate where or who to focus for the healthcare system to gain trust. With further research, we will be able observe how it has been improved since 1987, but for now we are going to focus on why the gap existed in 1987, Thailand. For detailed answer for why will be discussed in discussion session. 
 
-This paper is about children immunization reports in 1987 Thailand. Specifically how the rate differs between communities, regions, people with different education levels and religion. Along with that, its cases are divided into reports from mothers and healthcare. There clearly exists limitations and gaps that we need to fill. First, we are now in 2022. We cannot go back to the period and conduct research regarding our focus. Second, thoughts cannot be measured thoroughly. 
+For this paper, after this introduction session, you are going to explore
+
+2) Data
+3) Results
+4) Discussion
+5) Reference list
 
 
 # Data
-To obtain data with respect to our interest, we took an approach to Thailand DHS survey in 1980s and 1990s. Among many candidates, we chose year 1987. In the survey, there existed many data similar to our aim. For instance, a data presented child and infant mortality with respect to participants' features. It showed the mortality rate with same variables that our data has. However, we thought that mortality alone could not be enough to show the gap existed between healthcare system and mothers. Following that, we made a decision that combining other variables would cause bias in this research. 
-The data we chose presents cases of children immunization status between communities(urban and rural), region(north,northeast,central,south and Bangkok), education level(no education, primary, secondary and higher), religion: (Buddhist and Islam), and whether they were reported from healthcare or mother, or their children did not get one or not. For a small drawback, other religions such as Christianity was excluded since majority of Thai believed Buddhism and almost rest believed Islam.  
+To obtain data with respect to our interest, we took an approach to Thailand DHS survey in 1980s and 1990s. Among many candidates, we chose year 1987. In the survey, there existed many similar data regarding our aim. For instance, a data presented child and infant mortality with respect to participants' features. It showed the mortality rate with same variables that our data has. However, we thought that mortality alone could not be enough to show why the gap existed between healthcare system and mothers. Following that, we made a decision that combining other variables would cause bias in this research. 
+The data we chose presented cases of children immunization status between communities(urban and rural), region(north,northeast,central,south and Bangkok), education level(no education, primary, secondary and higher), religion: (Buddhist and Islam), and where they were reported, or whether  children did not get one or not. For a small drawback, other religions such as Christianity was excluded since majority of Thai believe in Buddhism and rest believe in Islam.  
 Now let's begin to talk about our data in details.
 
 1) Communities
 - Urban
 - Rural
 
-Surprisingly, in 1987 Thailand, if you take a look at figure\@ref(fig:fig1), there were more people in rural  than urban areas. According to Statistic, urbanization rate in Thailand from 2010 to 2020  slowly increased but it still remained mid 40 percentage to 50 percentage. This is very small compared to that of US, which is mid 70 to 80. In addition to the population density between urban and rural, mother's report cases were extremely more than healthcare in rural area. Calculating the percentage, it was 60 and 22.8 percentage. On the other hand, there seems comparatively similar cases from healthcare and mothers in urban areas. Lastly,immunization rate is higher in urban compared to rural areas. 
+Surprisingly, in 1987 Thailand, if you take a look at figure\@ref(fig:fig1) and \@ref(fig:fig2), there were more people in rural than urban areas. According to Statistic, urbanization rate in Thailand from 2010 to 2020  slowly increased but it still remained mid 40 percentage to 50 percentage. This is very small compared to that of US, which is mid 70 to 80. In addition to the population density between urban and rural, mother's report cases were more than healthcare in rural area. Calculating the percentage, it was 60% vs 22.8%. On the other hand, there seems comparatively similar cases between healthcare and mothers in urban areas. Lastly,immunization rate is higher in urban compared to rural areas. 
 
 2) Region
 - North
@@ -48,7 +54,7 @@ Surprisingly, in 1987 Thailand, if you take a look at figure\@ref(fig:fig1), the
 - South
 - Bangkok
 
-As we have observed in figure\@ref(fig:fig1), figure\@ref(fig:fig2) shows regional based immunization status. Most participants were not from Bangkok, the capital of Thailand. Instead, they were from Northeast. This is because Islan, the northeast part of Thailand, is the largest region of Thailand, and urbanization in Thailand is relatively low. The graph shows very similar trends observed in \@ref(fig:fig1). There were more mother's reports outside of Bangkok, and less immunization rate outside of Bangkok. One thing to notice is that percentage of mother's reports in Northeast is noticeably higher. 
+Figure\@ref(fig:fig3) shows regional based immunization status. Most participants were not from Bangkok, the capital of Thailand. Instead, they were from Northeast. This is because Islan, the northeast part of Thailand, is the largest region of Thailand, and urbanization in Thailand is relatively low. The graph shows very similar trends with \@ref(fig:fig1). There were more mother's reports outside of Bangkok, and less immunization rate outside of Bangkok. On the other hand, comparatively equal cases are observed in Bangkok. One thing to notice is that percentage of mother's reports in Northeast is noticeably higher. 
 
 3) Education level
 - No Education
@@ -56,13 +62,14 @@ As we have observed in figure\@ref(fig:fig1), figure\@ref(fig:fig2) shows region
 - Secondary
 - Higher 
 
-If you look at figure\@ref(fig:fig4), you can observe that as education level goes up, gap between mother's report and healthcare is being equalized. In addition to that, non immunization rate decreases. One thing to notice is that higher education you have in Thailand there existed more immunization rate. For instance, people with higher education shows immunization rate close to 100%.  
+If you look at figure\@ref(fig:fig4), you can observe that as education level goes up, gap between mother's report and healthcare is being filled. In addition to that, non immunization rate decreases. One thing to notice is that higher education you have in Thailand, there existed more immunization rate. For instance, people with higher education shows immunization rate close to 100%.  
 
 4) Religion
 - Buddhist
 - Islam 
 
-We have discussed about small drawback in religion, which is other religion except Buddhisms and Islam were not collected. Further, majority of Thai people believes in Buddhism, thus in the graph figure\@ref(fig:fig4), you can observe that there existed more cases in Buddhism than Islam. As we observed up to this point, similar to other variables, there existed more mother's report cases than that of healthcare with no exception to religion. 
+At the beginning of introduction, we talked about small drawback in religion, which is other religions except Buddhisms and Islam were not collected. Moreover, majority of Thai people believes in Buddhism \@ref(fig:fig1), thus in the graph figure\@ref(fig:fig5), you can observe that there existed more cases in Buddhism than Islam. As we have observed up to this point, similar to other variables, there existed more mother's report cases than that of healthcare with no exception to religion. 
+
 ```{r, include=FALSE, echo=FALSE}
 # Read the extracted and cleaned data, data extraction done in 01-gather-data.R and modification done in 02-clean-and-prepare-data.R
 data <- read_csv("outputs/data/cleaned_data.csv")
@@ -130,7 +137,7 @@ population$Variable <- factor(population$Variable,
 #                       )
 ```
 
-```{r fig1,echo=FALSE, fig.cap = "Immunization cases between communities"}
+```{r fig1,echo=FALSE, fig.cap = "Immunization cases between variables"}
 population %>%
   ggplot(aes(x = Variable, y = Population, fill = Variable)) +
   geom_bar(stat='identity', position = "dodge") +
@@ -184,23 +191,10 @@ total %>%
   theme(legend.position = "none")
 ```
 
-
-
-
 # Results
+Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. To be clear, you should also have text associated with all these aspects. Show the reader the results by plotting them. Talk about them. Explain them. That said, this section should strictly relay results.
 
-\begin{equation}
-Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}  (\#eq:bayes)
-\end{equation}
-
-Equation \@ref(eq:bayes) seems useful, eh?
-
-Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful. 
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
-
-
-# Results
+In this session, we are going to explore the results of analysis. To do that, we are going to use top-down method. Let's take a look at figure\@ref(fig:fig6), which is the total result of immunization reports. This graph shows that how different immunization rate between healthcare and mother reports are with non immunization rate among 2872 participants. 
 
 # Discussion
 
