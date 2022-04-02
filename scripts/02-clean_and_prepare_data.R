@@ -51,7 +51,6 @@ agent <-
   interrogate()
 
 agent
-view(cleaned_data)
 
 #### Save ####
 write_csv(cleaned_data, "outputs/data/cleaned_data.csv")
