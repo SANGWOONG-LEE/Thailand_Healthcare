@@ -23,8 +23,11 @@ library(knitr)
 
 # Introduction
 
-The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; and 6) why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out.  
+The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; and 6) why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out.
 
+Trust is a big matter in this world. Especially when you need assistance from areas that you are unfamiliar with, trust is the best thing that you can rely on. For instance, if you need a lawyer, the best thing that you can do is trust him/her/the, and be 100% honest to your lawyer. In medical field, trust directly relates to your life. We are certain that you have observed that many people have been refusing to get vaccine for COVID-19. Then, we start to wonder whether the COVID-19 vaccine controversy is similar to other vaccines that are proved and guaranteed safety such as BCG vaccine for preventing tuberculosis. It is true that we no longer have doubts against them. However, we thought that if you move sight to developing country in 1980~1990s, situation would certainly different because of well constructed healthcare system or other reasons. This curiosty triggered us to start this research. 
+
+This paper is about children immunization reports in 1987 Thailand. Specifically how the rate differs between communities, regions, people with different education levels and religion. Along with that, its cases are divided into reports from mothers and healthcare. There clearly exists limitations and gaps that we need to fill. First, we are now in 2022. We cannot go back to the period and conduct research regarding our focus. Second, thoughts cannot be measured thoroughly. 
 
 
 # Data
@@ -53,6 +56,7 @@ As we have observed in figure\@ref(fig:fig1), figure\@ref(fig:fig2) shows region
 - Secondary
 - Higher 
 
+If you look at figure\@ref(fig:fig4), you can observe that as education level goes up, gap between mother's report and healthcare is being equalized. In addition to that, non immunization rate decreases. One thing to notice is that higher education you have in Thailand there existed more immunization rate. For instance, people with higher education shows immunization rate close to 100%.  
 
 4) Religion
 - Buddhist
@@ -120,14 +124,14 @@ population <- data.frame(Variable = data$Variable, Population = data$Number_of_C
 #                       )
 ```
 
-```{r}
+```{r fig1,echo=FALSE, fig.cap = "Immunization cases between communities"}
 population %>%
   ggplot(aes(x = Variable, y = Population, fill = Variable)) +
   geom_bar(stat='identity', position = "dodge") +
   coord_flip()
 ```
 
-```{r fig1,echo=FALSE, fig.cap = "Immunization cases between communities"}
+```{r fig2,echo=FALSE, fig.cap = "Immunization cases between communities"}
 #ggplot(data[1:2,], aes(x = Variable, y = Health_Record)) + geom_bar(stat='identity') + facet_wrap(~Mothers_Report)
 urban_rural %>%
   ggplot(aes(x = immune_status, y = value, fill = Variable)) +
@@ -135,14 +139,14 @@ urban_rural %>%
   coord_flip()
 ```
 
-```{r fig2,echo=FALSE, fig.cap = "Immunization cases between region"}
+```{r fig3,echo=FALSE, fig.cap = "Immunization cases between region"}
 #ggplot(data[3:7,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 region %>%
   ggplot(aes(x = Variable, y = value, fill = immune_status)) +
   geom_bar(stat='identity', position = "dodge") +
   coord_flip()
 ```
-```{r}
+```{r fig4,echo=FALSE, fig.cap = "Immunization cases between education"}
 #ggplot(data[8:11,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 education %>%
   ggplot(aes(x = Variable, y = value, fill = immune_status)) +
@@ -150,7 +154,7 @@ education %>%
   coord_flip()
 ```
 
-```{r fig4,echo=FALSE, fig.cap = "Immunization cases between religion"}
+```{r fig5,echo=FALSE, fig.cap = "Immunization cases between religion"}
 #ggplot(data[12:13,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 religion %>%
   ggplot(aes(x = immune_status, y = value, fill = Variable)) +
@@ -158,7 +162,7 @@ religion %>%
   coord_flip()
 ```
 
-```{r}
+```{r fig6,echo=FALSE, fig.cap = "Immunization and non-immunization cases total"}
 total %>%
   ggplot(aes(x = immune_status, y = value, fill = immune_status)) +
   geom_bar(stat='identity', position = "dodge") +
