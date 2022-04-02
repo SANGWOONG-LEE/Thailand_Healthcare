@@ -32,12 +32,17 @@ You can and should cross-reference sections and sub-sections. For instance, Sect
 # Read the extracted and cleaned data, data extraction done in 01-gather-data.R and modification done in 02-clean-and-prepare-data.R
 data <- read_csv("outputs/data/cleaned_data.csv")
 
-urban_rural <- pivot_longer(data[1:2, 1:5], -Variable, names_to="immune_status", values_to="value")
-region <- pivot_longer(data[3:7, 1:5], -Variable, names_to="immune_status", values_to="value")
-education <- pivot_longer(data[8:11, 1:5], -Variable, names_to="immune_status", values_to="value")
-religion <- pivot_longer(data[12:13, 1:5], -Variable, names_to="immune_status", values_to="value")
-total <- pivot_longer(data[14, 1:5], -Variable, names_to="immune_status", values_to="value")
-population <- data.frame(Variable = data$Variable, Population = data$Number_of_Children)
+urban_rural <- pivot_longer(data[1:2, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value")
+region <- pivot_longer(data[3:7, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value")
+education <- pivot_longer(data[8:11, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value")
+religion <- pivot_longer(data[12:13, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value")
+total <- pivot_longer(data[14, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value")
+population <- data.frame(Variable = data$Variable, 
+                         Population = data$Number_of_Children) %>% head(-1)
+population$Variable <- factor(population$Variable,
+                              levels = population$Variable) %>% fct_rev()
+```
+```{r}
 
 # create new dataset only for urban-rural data
 # urban_rural <- data.frame(location = c(rep("urban", data[1,6]), rep("rural", data[2,6])),
