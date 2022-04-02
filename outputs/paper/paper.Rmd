@@ -128,7 +128,11 @@ education %>%
 religion %>%
   ggplot(aes(x = immune_status, y = value, fill = Variable)) +
   geom_bar(stat='identity', position = "dodge") +
-  coord_flip()
+  coord_flip()  +
+  labs(x = element_blank(),
+       y = "Percent",
+       title = "Percentage of Children's Immunization Status",
+       )
 ```
 Talk more about it.
 
@@ -138,7 +142,12 @@ Also bills and their average (Figure \@ref(fig:billssssss)). (Notice how you can
 total %>%
   ggplot(aes(x = immune_status, y = value, fill = immune_status)) +
   geom_bar(stat='identity', position = "dodge") +
-  coord_flip()
+  coord_flip() +
+  labs(x = element_blank(),
+       y = "Percent",
+       title = "Percentage of Children's Immunization Status",
+       ) +
+  theme(legend.position = "none")
 ```
 
 Talk way more about it. 
