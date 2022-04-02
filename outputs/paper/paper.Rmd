@@ -42,6 +42,7 @@ population <- data.frame(Variable = data$Variable,
 population$Variable <- factor(population$Variable,
                               levels = population$Variable) %>% fct_rev()
 ```
+
 ```{r}
 
 # create new dataset only for urban-rural data
