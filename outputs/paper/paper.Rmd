@@ -45,7 +45,7 @@ Now let's begin to talk about our data in details.
 - Urban
 - Rural
 
-Surprisingly, in 1987 Thailand, if you take a look at figure\@ref(fig:fig1), there were more people in rural than urban areas. According to Statistic, urbanization rate in Thailand from 2010 to 2020  slowly increased but it still remained mid 40 percentage to 50 percentage. This is very small compared to that of US, which is mid 70 to 80. In addition to the population density between urban and rural, mother's report cases were more than healthcare in rural area. Calculating the percentage, it was 60% vs 22.8%. On the other hand, there seems comparatively similar cases between healthcare and mothers in urban areas. Lastly,immunization rate is higher in urban compared to rural areas. 
+Surprisingly, in 1987 Thailand, if you take a look at figure\@ref(fig:fig1) and \@ref(fig:fig2), there were more people in rural than urban areas. According to Statistic, urbanization rate in Thailand from 2010 to 2020  slowly increased but it still remained mid 40 percentage to 50 percentage. This is very small compared to that of US, which is mid 70 to 80. In addition to the population density between urban and rural, mother's report cases were more than healthcare in rural area. Calculating the percentage, it was 60% vs 22.8%. On the other hand, there seems comparatively similar cases between healthcare and mothers in urban areas. Lastly,immunization rate is higher in urban compared to rural areas. 
 
 2) Region
 - North
@@ -54,7 +54,7 @@ Surprisingly, in 1987 Thailand, if you take a look at figure\@ref(fig:fig1), the
 - South
 - Bangkok
 
-Figure\@ref(fig:fig2) shows regional based immunization status. Most participants were not from Bangkok, the capital of Thailand. Instead, they were from Northeast. This is because Islan, the northeast part of Thailand, is the largest region of Thailand, and urbanization in Thailand is relatively low. The graph shows very similar trends with \@ref(fig:fig1). There were more mother's reports outside of Bangkok, and less immunization rate outside of Bangkok. On the other hand, comparatively equal cases are observed in Bangkok. One thing to notice is that percentage of mother's reports in Northeast is noticeably higher. 
+Figure\@ref(fig:fig3) shows regional based immunization status. Most participants were not from Bangkok, the capital of Thailand. Instead, they were from Northeast. This is because Islan, the northeast part of Thailand, is the largest region of Thailand, and urbanization in Thailand is relatively low. The graph shows very similar trends with \@ref(fig:fig1). There were more mother's reports outside of Bangkok, and less immunization rate outside of Bangkok. On the other hand, comparatively equal cases are observed in Bangkok. One thing to notice is that percentage of mother's reports in Northeast is noticeably higher. 
 
 3) Education level
 - No Education
@@ -68,7 +68,7 @@ If you look at figure\@ref(fig:fig4), you can observe that as education level go
 - Buddhist
 - Islam 
 
-At the beginning of introduction, we talked about small drawback in religion, which is other religions except Buddhisms and Islam were not collected. Moreover, majority of Thai people believes in Buddhism \@ref(fig:fig1), thus in the graph figure\@ref(fig:fig4), you can observe that there existed more cases in Buddhism than Islam. As we have observed up to this point, similar to other variables, there existed more mother's report cases than that of healthcare with no exception to religion. 
+At the beginning of introduction, we talked about small drawback in religion, which is other religions except Buddhisms and Islam were not collected. Moreover, majority of Thai people believes in Buddhism \@ref(fig:fig1), thus in the graph figure\@ref(fig:fig5), you can observe that there existed more cases in Buddhism than Islam. As we have observed up to this point, similar to other variables, there existed more mother's report cases than that of healthcare with no exception to religion. 
 
 ```{r, include=FALSE, echo=FALSE}
 # Read the extracted and cleaned data, data extraction done in 01-gather-data.R and modification done in 02-clean-and-prepare-data.R
@@ -137,7 +137,7 @@ population$Variable <- factor(population$Variable,
 #                       )
 ```
 
-```{r fig1,echo=FALSE, fig.cap = "Immunization cases between communities"}
+```{r fig1,echo=FALSE, fig.cap = "Immunization cases between variables"}
 population %>%
   ggplot(aes(x = Variable, y = Population, fill = Variable)) +
   geom_bar(stat='identity', position = "dodge") +
@@ -182,23 +182,10 @@ total %>%
   coord_flip()
 ```
 
-
-
-
 # Results
+Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. To be clear, you should also have text associated with all these aspects. Show the reader the results by plotting them. Talk about them. Explain them. That said, this section should strictly relay results.
 
-\begin{equation}
-Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}  (\#eq:bayes)
-\end{equation}
-
-Equation \@ref(eq:bayes) seems useful, eh?
-
-Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful. 
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
-
-
-# Results
+In this session, we are going to explore the results of analysis. To do that, we are going to use top-down method. Let's take a look at figure\@ref(fig:fig6), which is the total result of immunization reports. This graph shows that how different immunization rate between healthcare and mother reports are with non immunization rate among 2872 participants. 
 
 # Discussion
 
