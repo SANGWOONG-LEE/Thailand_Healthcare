@@ -68,7 +68,7 @@ If you look at figure\@ref(fig:fig4), you can observe that as education level go
 - Buddhist
 - Islam 
 
-At the beginning of introduction, we talked about small drawback in religion, which is other religions except Buddhisms and Islam were not collected. Moreover, majority of Thai people believes in Buddhism, thus in the graph figure\@ref(fig:fig4), you can observe that there existed more cases in Buddhism than Islam. As we have observed up to this point, similar to other variables, there existed more mother's report cases than that of healthcare with no exception to religion. 
+At the beginning of introduction, we talked about small drawback in religion, which is other religions except Buddhisms and Islam were not collected. Moreover, majority of Thai people believes in Buddhism \@ref(fig:fig1), thus in the graph figure\@ref(fig:fig4), you can observe that there existed more cases in Buddhism than Islam. As we have observed up to this point, similar to other variables, there existed more mother's report cases than that of healthcare with no exception to religion. 
 
 ```{r, include=FALSE, echo=FALSE}
 # Read the extracted and cleaned data, data extraction done in 01-gather-data.R and modification done in 02-clean-and-prepare-data.R
