@@ -1,11 +1,11 @@
 ---
-title: "Disagreement Regarding 2016 Presidential Election in the United States^[Code and data are available at: https://github.com/SANGWOONG-LEE/Thailand_Healthcare]"
-subtitle: "Possible factors effecting 2016 election"
+title: "The serious gap laying on healthcare system in Thailand^[Code and data are available at: https://github.com/SANGWOONG-LEE/Thailand_Healthcare]"
+subtitle: "Why there exists gap between health system and mother's report for immunization"
 author: 
   - SangWoong Lee
   - Young Suk
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "This paper has been examined possible variables that influenced U.S citizens' choice for the 2016 U.S presidential election. We have found that there exists significantly different opinions regarding gender, wealth, race and age. This is important in a sesne that it shows thought trends as well as crucial decision indicators for voting in U.S.,With further survey at the end of this paper, we are going to explore whether this is happening only in U.S or not."
+abstract: "This paper has been examined possible variables that influenced children immunization report cases between healthcare system and mother's report in Thailand. We have found that there exists significant difference regarding communities, region, education level and religion. This is important in a sense that it relates to lives as well as indication for why such gap exits. We will discuss the importance in details at discussion session."
 output:
   bookdown::pdf_document2:
     fig_caption: yes
@@ -23,11 +23,42 @@ library(knitr)
 
 # Introduction
 
-You can and should cross-reference sections and sub-sections. For instance, Section \@ref(data). R Markdown automatically makes the sections lower case and adds a dash to spaces to generate labels, for instance, Section \@ref(first-discussion-point). 
+The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; and 6) why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out.  
 
 
 
 # Data
+To obtain data with respect to our interest, we took an approach to Thailand DHS survey in 1980s and 1990s. Among many candidates, we chose year 1987. In the survey, there existed many data similar to our aim. For instance, a data presented child and infant mortality with respect to participants' features. It showed the mortality rate with same variables that our data has. However, we thought that mortality alone could not be enough to show the gap existed between healthcare system and mothers. Following that, we made a decision that combining other variables would cause bias in this research. 
+The data we chose presents cases of children immunization status between communities(urban and rural), region(north,northeast,central,south and Bangkok), education level(no education, primary, secondary and higher), religion: (Buddhist and Islam), and whether they were reported from healthcare or mother, or their children did not get one or not. For a small drawback, other religions such as Christianity was excluded since majority of Thai believed Buddhism and almost rest believed Islam.  
+Now let's begin to talk about our data in details.
+
+1) Communities
+- Urban
+- Rural
+
+Surprisingly, in 1987 Thailand, if you take a look at figure\@ref(fig:fig1), there were more people in rural  than urban areas. According to Statistic, urbanization rate in Thailand from 2010 to 2020  slowly increased but it still remained mid 40 percentage to 50 percentage. This is very small compared to that of US, which is mid 70 to 80. In addition to the population density between urban and rural, mother's report cases were extremely more than healthcare in rural area. Calculating the percentage, it was 60 and 22.8 percentage. On the other hand, there seems comparatively similar cases from healthcare and mothers in urban areas. Lastly,immunization rate is higher in urban compared to rural areas. 
+
+2) Region
+- North
+- Northeast
+- Central
+- South
+- Bangkok
+
+As we have observed in figure\@ref(fig:fig1), figure\@ref(fig:fig2) shows regional based immunization status. Most participants were not from Bangkok, the capital of Thailand. Instead, they were from Northeast. This is because Islan, the northeast part of Thailand, is the largest region of Thailand, and urbanization in Thailand is relatively low. The graph shows very similar trends observed in \@ref(fig:fig1). There were more mother's reports outside of Bangkok, and less immunization rate outside of Bangkok. One thing to notice is that percentage of mother's reports in Northeast is noticeably higher. 
+
+3) Education level
+- No Education
+- Primary
+- Secondary
+- Higher 
+
+
+4) Religion
+- Buddhist
+- Islam 
+
+We have discussed about small drawback in religion, which is other religion except Buddhisms and Islam were not collected. Further, majority of Thai people believes in Buddhism, thus in the graph figure\@ref(fig:fig4), you can observe that there existed more cases in Buddhism than Islam. As we observed up to this point, similar to other variables, there existed more mother's report cases than that of healthcare with no exception to religion. 
 ```{r, include=FALSE, echo=FALSE}
 # Read the extracted and cleaned data, data extraction done in 01-gather-data.R and modification done in 02-clean-and-prepare-data.R
 data <- read_csv("outputs/data/cleaned_data.csv")
@@ -76,13 +107,14 @@ religion <- data.frame(religion = c(rep("Buddhist", data[12,6]), rep("Islam", da
 ```
 
 
-```{r}
+```{r fig1,echo=FALSE, fig.cap = "Immunization cases between communities"}
 #ggplot(data[1:2,], aes(x = Variable, y = Health_Record)) + geom_bar(stat='identity') + facet_wrap(~Mothers_Report)
 urban_rural %>%
   ggplot(aes(x = location, fill = immune_data)) +
   geom_bar(position = "dodge")
 ```
-```{r}
+
+```{r fig2,echo=FALSE, fig.cap = "Immunization cases between region"}
 #ggplot(data[3:7,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 region %>%
   ggplot(aes(x = region, fill = immune_data)) +
@@ -91,25 +123,22 @@ region %>%
 ```{r}
 #ggplot(data[8:11,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 ```
-```{r}
+
+```{r fig4,echo=FALSE, fig.cap = "Immunization cases between religion"}
 #ggplot(data[12:13,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 religion %>%
   ggplot(aes(x = religion, fill = immune_data)) +
   geom_bar(position = "dodge")
 ```
-Talk more about it.
-
-Also bills and their average (Figure \@ref(fig:billssssss)). (Notice how you can change the height and width so they don't take the whole page?)
 
 ```{r}
 
 ```
 
-Talk way more about it. 
 
 
 
-# Model
+# Results
 
 \begin{equation}
 Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}  (\#eq:bayes)
@@ -152,5 +181,6 @@ Weaknesses and next steps should also be included.
 
 
 # References
-
+https://www.statista.com/statistics/455942/urbanization-in-thailand/
+https://www.statista.com/statistics/269967/urbanization-in-the-united-states/
 
