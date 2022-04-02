@@ -32,23 +32,30 @@ You can and should cross-reference sections and sub-sections. For instance, Sect
 # Read the extracted and cleaned data, data extraction done in 01-gather-data.R and modification done in 02-clean-and-prepare-data.R
 data <- read_csv("outputs/data/cleaned_data.csv")
 
+urban_rural <- pivot_longer(data[1:2, 1:5], -Variable, names_to="immune_status", values_to="value")
+region <- pivot_longer(data[3:7, 1:5], -Variable, names_to="immune_status", values_to="value")
+education <- pivot_longer(data[8:11, 1:5], -Variable, names_to="immune_status", values_to="value")
+religion <- pivot_longer(data[12:13, 1:5], -Variable, names_to="immune_status", values_to="value")
+total <- pivot_longer(data[14, 1:5], -Variable, names_to="immune_status", values_to="value")
+population <- data.frame(Variable = data$Variable, Population = data$Number_of_Children)
+
 # create new dataset only for urban-rural data
-urban_rural <- data.frame(location = c(rep("urban", data[1,6]), rep("rural", data[2,6])),
-                immune_data =  c(rep("Health Report", round(data[1,2]*data[1,6]/100)), rep("Mothers Report", round(data[1,3]*data[1,6]/100)), rep("No immune", round(data[1,5]*data[1,6]/100)), 
-                                 rep("Health Report", round(data[2,2]*data[2,6]/100)), rep("Mothers Report", round(data[2,3]*data[2,6]/100)), rep("No immune", round(data[2,5]*data[2,6]/100)))
-                
-                )
+# urban_rural <- data.frame(location = c(rep("urban", data[1,6]), rep("rural", data[2,6])),
+#                 immune_data =  c(rep("Health Report", round(data[1,2]*data[1,6]/100)), rep("Mothers Report", round(data[1,3]*data[1,6]/100)), rep("No immune", round(data[1,5]*data[1,6]/100)), 
+#                                  rep("Health Report", round(data[2,2]*data[2,6]/100)), rep("Mothers Report", round(data[2,3]*data[2,6]/100)), rep("No immune", round(data[2,5]*data[2,6]/100)))
+#                 
+#                 )
 
 # create new dataset only for for region
-region <- data.frame(region = c(rep("north", data[3,6]), rep("north_east", data[4,6]), rep("central", data[5,6]), rep("south", data[6,6]), rep("bangkok", data[7,6])),
-                    immune_data =  c(rep("Health Report", round(data[3,2]*data[3,6]/100)), rep("Mothers Report", round(data[3,3]*data[3,6]/100)), rep("No immune", round(data[3,5]*data[3,6]/100)), 
-                                 rep("Health Report", round(data[4,2]*data[4,6]/100)), rep("Mothers Report", round(data[4,3]*data[4,6]/100)), rep("No immune", round(data[4,5]*data[4,6]/100)),
-                                 rep("Health Report", round(data[5,2]*data[5,6]/100)), rep("Mothers Report", round(data[5,3]*data[5,6]/100)), rep("No immune", round(data[5,5]*data[5,6]/100)), 
-                                 rep("Health Report", round(data[6,2]*data[6,6]/100)), rep("Mothers Report", round(data[6,3]*data[6,6]/100)), rep("No immune", round(data[6,5]*data[6,6]/100)),
-                                 rep("Health Report", round(data[7,2]*data[7,6]/100)), rep("Mothers Report", round(data[7,3]*data[7,6]/100)), rep("No immune", round(data[7,5]*data[7,6]/100)))
-                    )
+# region <- data.frame(region = c(rep("north", data[3,6]), rep("north_east", data[4,6]), rep("central", data[5,6]), rep("south", data[6,6]), rep("bangkok", data[7,6])),
+#                     immune_data =  c(rep("Health Report", round(data[3,2]*data[3,6]/100)), rep("Mothers Report", round(data[3,3]*data[3,6]/100)), rep("No immune", round(data[3,5]*data[3,6]/100)), 
+#                                  rep("Health Report", round(data[4,2]*data[4,6]/100)), rep("Mothers Report", round(data[4,3]*data[4,6]/100)), rep("No immune", round(data[4,5]*data[4,6]/100)),
+#                                  rep("Health Report", round(data[5,2]*data[5,6]/100)), rep("Mothers Report", round(data[5,3]*data[5,6]/100)), rep("No immune", round(data[5,5]*data[5,6]/100)), 
+#                                  rep("Health Report", round(data[6,2]*data[6,6]/100)), rep("Mothers Report", round(data[6,3]*data[6,6]/100)), rep("No immune", round(data[6,5]*data[6,6]/100)),
+#                                  rep("Health Report", round(data[7,2]*data[7,6]/100)), rep("Mothers Report", round(data[7,3]*data[7,6]/100)), rep("No immune", round(data[7,5]*data[7,6]/100)))
+#                     )
 
-# create new dataset only for for education
+# create new dataset only for for education. due to an error in the dataset provided by DHS, some rows will be filled with NA.
 
  # no_edu <-data.frame(education = c(rep("no_edu", 265)),
  #                     immune_data = c(rep("Health Report", round(data[8,2]*data[8,6]/100)), rep("Mothers Report", round(data[8,3]*data[8,6]/100)), rep("No immune", round(data[8,5]*data[8,6]/100)))
@@ -61,48 +68,71 @@ region <- data.frame(region = c(rep("north", data[3,6]), rep("north_east", data[
  # secondary <-data.frame(education = c(rep("secondary", data[10,6])),
  #                     immune_data = c(rep("Health Report", floor(data[10,2]*data[10,6]/100)), rep("Mothers Report", floor(data[10,3]*data[10,6]/100)), rep("No immune", round(data[10,5]*data[10,6]/100)))
  #                    )
-# education <- data.frame(education = c(rep("no_education", data[8,6]), rep("primary", data[9,6]), rep("secondary", data[10,6]), rep("higher", data[11,6])),
-#                     immune_data =  c(rep("Health Report", round(data[8,2]*data[8,6]/100)), rep("Mothers Report", round(data[8,3]*data[8,6]/100)), rep("No immune", round(data[8,5]*data[8,6]/100)), 
+# education <- data.frame(education = c(rep("no_education", round(data[8,2]*data[8,6]/100) + round(data[8,3]*data[8,6]/100) + round(data[8,5]*data[8,6]/100)), 
+#                                       rep("primary", round(data[9,2]*data[9,6]/100) + round(data[9,3]*data[9,6]/100) + round(data[9,5]*data[9,6]/100)), 
+#                                       rep("secondary", round(data[10,2]*data[10,6]/100) + round(data[10,3]*data[10,6]/100) + round(data[10,5]*data[10,6]/100)),
+#                                       rep("higher", round(data[11,2]*data[11,6]/100) + round(data[11,3]*data[11,6]/100) + round(data[11,5]*data[11,6]/100))),
+#                     immune_data =  c(rep("Health Report", round(data[8,2]*data[8,6]/100)), rep("Mothers Report", round(data[8,3]*data[8,6]/100)), rep("No immune", round(data[8,5]*data[8,6]/100)),
 #                                  rep("Health Report", round(data[9,2]*data[9,6]/100)), rep("Mothers Report", round(data[9,3]*data[9,6]/100)), rep("No immune", round(data[9,5]*data[9,6]/100)),
-#                                  rep("Health Report", round(data[10,2]*data[10,6]/100)), rep("Mothers Report", round(data[10,3]*data[10,6]/100)), rep("No immune", round(data[10,5]*data[10,6]/100)), 
+#                                  rep("Health Report", round(data[10,2]*data[10,6]/100)), rep("Mothers Report", round(data[10,3]*data[10,6]/100)), rep("No immune", round(data[10,5]*data[10,6]/100)),
 #                                  rep("Health Report", round(data[11,2]*data[11,6]/100)), rep("Mothers Report", round(data[11,3]*data[11,6]/100)), rep("No immune", round(data[11,5]*data[11,6]/100)))
 #                     )
 
 # create new dataset only for for education
-religion <- data.frame(religion = c(rep("Buddhist", data[12,6]), rep("Islam", data[13,6])),
-                immune_data =  c(rep("Health Report", round(data[12,2]*data[12,6]/100)), rep("Mothers Report", round(data[12,3]*data[12,6]/100)), rep("No immune", round(data[12,5]*data[12,6]/100)), 
-                                 rep("Health Report", round(data[13,2]*data[13,6]/100)), rep("Mothers Report", round(data[13,3]*data[13,6]/100)), rep("No immune", round(data[13,5]*data[13,6]/100)))
-                      )
+# religion <- data.frame(religion = c(rep("Buddhist", data[12,6]), rep("Islam", data[13,6])),
+#                 immune_data =  c(rep("Health Report", round(data[12,2]*data[12,6]/100)), rep("Mothers Report", round(data[12,3]*data[12,6]/100)), rep("No immune", round(data[12,5]*data[12,6]/100)), 
+#                                  rep("Health Report", round(data[13,2]*data[13,6]/100)), rep("Mothers Report", round(data[13,3]*data[13,6]/100)), rep("No immune", round(data[13,5]*data[13,6]/100)))
+#                       )
+# 
+# total <- data.frame(total = c(rep("total", data[14,6])),
+#                 immune_data =  c(rep("Health Report", floor(data[14,2]*data[14,6]/100)), rep("Mothers Report", floor(data[14,3]*data[14,6]/100)), rep("No immune", floor(data[14,5]*data[14,6]/100)))
+#                       )
 ```
 
+```{r}
+population %>%
+  ggplot(aes(x = Variable, y = Population, fill = Variable)) +
+  geom_bar(stat='identity', position = "dodge") +
+  coord_flip()
+```
 
 ```{r}
 #ggplot(data[1:2,], aes(x = Variable, y = Health_Record)) + geom_bar(stat='identity') + facet_wrap(~Mothers_Report)
 urban_rural %>%
-  ggplot(aes(x = location, fill = immune_data)) +
-  geom_bar(position = "dodge")
+  ggplot(aes(x = immune_status, y = value, fill = Variable)) +
+  geom_bar(stat='identity', position = "dodge") +
+  coord_flip()
 ```
 ```{r}
 #ggplot(data[3:7,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 region %>%
-  ggplot(aes(x = region, fill = immune_data)) +
-  geom_bar(position = "dodge")
+  ggplot(aes(x = immune_status, y = value, fill = Variable)) +
+  geom_bar(stat='identity', position = "dodge") +
+  coord_flip()
 ```
 ```{r}
 #ggplot(data[8:11,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
+education %>%
+  ggplot(aes(x = immune_status, y = value, fill = Variable)) +
+  geom_bar(stat='identity', position = "dodge") +
+  coord_flip()
 ```
 ```{r}
 #ggplot(data[12:13,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 religion %>%
-  ggplot(aes(x = religion, fill = immune_data)) +
-  geom_bar(position = "dodge")
+  ggplot(aes(x = immune_status, y = value, fill = Variable)) +
+  geom_bar(stat='identity', position = "dodge") +
+  coord_flip()
 ```
 Talk more about it.
 
 Also bills and their average (Figure \@ref(fig:billssssss)). (Notice how you can change the height and width so they don't take the whole page?)
 
 ```{r}
-
+total %>%
+  ggplot(aes(x = immune_status, y = value, fill = immune_status)) +
+  geom_bar(stat='identity', position = "dodge") +
+  coord_flip()
 ```
 
 Talk way more about it. 
