@@ -138,14 +138,14 @@ urban_rural %>%
 ```{r fig2,echo=FALSE, fig.cap = "Immunization cases between region"}
 #ggplot(data[3:7,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 region %>%
-  ggplot(aes(x = immune_status, y = value, fill = Variable)) +
+  ggplot(aes(x = Variable, y = value, fill = immune_status)) +
   geom_bar(stat='identity', position = "dodge") +
   coord_flip()
 ```
 ```{r}
 #ggplot(data[8:11,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 education %>%
-  ggplot(aes(x = immune_status, y = value, fill = Variable)) +
+  ggplot(aes(x = Variable, y = value, fill = immune_status)) +
   geom_bar(stat='identity', position = "dodge") +
   coord_flip()
 ```
