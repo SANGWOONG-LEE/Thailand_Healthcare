@@ -173,7 +173,11 @@ total %>%
 # Results
 Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. To be clear, you should also have text associated with all these aspects. Show the reader the results by plotting them. Talk about them. Explain them. That said, this section should strictly relay results.
 
-In this session, we are going to explore the results of analysis. To do that, we are going to use top-down method. Let's take a look at figure\@ref(fig:fig6), which is the total result of immunization reports. This graph shows that how different immunization rate between healthcare and mother reports are with non immunization rate among 2872 participants. 
+In this session, we are going to explore the results from data analysis. Let's take a look at figure\@ref(fig:fig6), which is the total result of immunization reports. This graph shows that how different immunization rate between healthcare and mother reports are among 2872 participants. 58.9 percentage of immunization was reported by mothers, approximately 1691 people, 26.0 percentage for healthcare, approximately 747 people and finally 15.1 percentage for non-immunization which is approximately 434 people. With this numbers in mind, we are going to analyze why this phenomena occurred in Thailand with two focuses; the gap between healthcare records and mother's reports and non-immunization rate.
+First, let's take a look at figure\@ref(fig:fig2). From this graph, we can observe that there is not much difference in mother's reports between rural and urban areas. However, there is significant gap in healthcare records. Percentage of healthcare records for urban is 41.5% and for rural is 22.8%. Following that, non immunization rate in rural areas is 17.2% which is more than 3 times of non immunization rate in urban, 5.3%. This two gaps indicate that there needs more healthcare facilitates. In addition to that, percentage of mother's reports in rural areas is not 
+low. This shows that there existed accessibility to vaccines in rural areas. Thus, we also conclude that lack of trust toward healthcare system could potentially affect the gap as well.
+
+Second, from figure\@ref(fig:fig3), regional based immunization rate seems very similar trends with communities. All over the regions, there are more mother's reports than healthcare records. For some specific region such as South, Northeast and Central, the gap is wider than the other two.  
 
 # Discussion
 
