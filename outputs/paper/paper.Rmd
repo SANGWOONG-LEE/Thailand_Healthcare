@@ -75,11 +75,17 @@ At the beginning of introduction, we talked about small drawback in religion, wh
 # Read the extracted and cleaned data, data extraction done in 01-gather-data.R and modification done in 02-clean-and-prepare-data.R
 data <- read_csv("outputs/data/cleaned_data.csv")
 
-urban_rural <- pivot_longer(data[1:2, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value")
-region <- pivot_longer(data[3:7, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value")
-education <- pivot_longer(data[8:11, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value")
-religion <- pivot_longer(data[12:13, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value")
-total <- pivot_longer(data[14, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value")
+# Separate the dataset by category and lengthen the dataset by moving a column to row for easier plotting.
+urban_rural <- pivot_longer(data[1:2, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value") %>%
+  mutate(immune_status = recode(immune_status, Health_Record = "Health Record", Mothers_Report = "Mother's Report", Not_Received_Immunization = "No Immunization"))
+region <- pivot_longer(data[3:7, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value") %>%
+  mutate(immune_status = recode(immune_status, Health_Record = "Health Record", Mothers_Report = "Mother's Report", Not_Received_Immunization = "No Immunization"))
+education <- pivot_longer(data[8:11, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value") %>%
+  mutate(immune_status = recode(immune_status, Health_Record = "Health Record", Mothers_Report = "Mother's Report", Not_Received_Immunization = "No Immunization"))
+religion <- pivot_longer(data[12:13, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value") %>%
+  mutate(immune_status = recode(immune_status, Health_Record = "Health Record", Mothers_Report = "Mother's Report", Not_Received_Immunization = "No Immunization"))
+total <- pivot_longer(data[14, 1:5], -c(Variable, Received_Immunization), names_to="immune_status", values_to="value") %>%
+  mutate(immune_status = recode(immune_status, Health_Record = "Health Record", Mothers_Report = "Mother's Report", Not_Received_Immunization = "No Immunization"))
 population <- data.frame(group = c(rep("urban-rural", 2), rep("region", 5), rep("education", 4), rep("religion", 3)),
                                            Variable = data$Variable, 
                          Population = data$Number_of_Children) %>% head(-1)
