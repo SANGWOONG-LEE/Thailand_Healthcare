@@ -1,6 +1,6 @@
 ---
 title: "The serious gap laying on healthcare system in Thailand^[Code and data are available at: https://github.com/SANGWOONG-LEE/Thailand_Healthcare]"
-subtitle: "Why there exists gap between health system and mother's report for immunization"
+subtitle: "Why there existed gap between health system and mother's report for immunization"
 author: 
   - SangWoong Lee
   - Young Suk
