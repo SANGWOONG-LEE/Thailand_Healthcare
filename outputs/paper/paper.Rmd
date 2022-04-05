@@ -207,7 +207,10 @@ As WHO claimed gradual improvement in healthcare system in Thailand, analysis of
 \newpage
 
 # References
-https://www.statista.com/statistics/455942/urbanization-in-thailand/
-https://www.statista.com/statistics/269967/urbanization-in-the-united-states/
+O'Neill, Aaron. “Thailand - Urbanization 2010-2020.” Statista, February 2, 2022. https://www.statista.com/statistics/455942/urbanization-in-thailand/. 
+
+O'Neill, Aaron. “United States - Urbanization 2020.” Statista, February 2, 2022. https://www.statista.com/statistics/269967/urbanization-in-the-united-states/. 
+
 “Primary Health Care Systems (PRIMASYS).” Accessed April 4, 2022. https://www.who.int/alliance-hpsr/projects/alliancehpsr_thailandprimasys.pdf. 
+
 
