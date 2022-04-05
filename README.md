@@ -1,5 +1,5 @@
-# starter_folder
+# Healthcare system in 1987 Thailand.
 
-This repo....
+This repo is about research in Thailand healthcare sysetm in 1987. 
 
-It is organised as follows...
+
