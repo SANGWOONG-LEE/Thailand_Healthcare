@@ -206,17 +206,6 @@ As WHO claimed gradual improvement in healthcare system in Thailand, analysis of
 
 \newpage
 
-\appendix
-
-# Appendix {-}
-
-
-# Additional details
-
-
-\newpage
-
-
 # References
 https://www.statista.com/statistics/455942/urbanization-in-thailand/
 https://www.statista.com/statistics/269967/urbanization-in-the-united-states/
