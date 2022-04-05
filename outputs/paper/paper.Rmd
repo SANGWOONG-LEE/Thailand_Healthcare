@@ -1,6 +1,6 @@
 ---
 title: "The serious gap laying on healthcare system in Thailand^[Code and data are available at: https://github.com/SANGWOONG-LEE/Thailand_Healthcare]"
-subtitle: "Why there exists gap between health system and mother's report for immunization"
+subtitle: "Why there existed gap between health system and mother's report for immunization"
 author: 
   - SangWoong Lee
   - Young Suk
@@ -185,7 +185,7 @@ Third, figure\@ref(fig:fig4) presents very interesting point. While mother's rep
 
 Lastly, figure\@ref(fig:fig5) represents immunization status along with religion. It shows that Buddhist got more immunization compared to that of Islam as well as healthcare records. Although Buddhist got more immunization, still its rate is mainly from mother's reports. One thing to notice here is that non-immunization rate for Islam is comparatively high. Like many variables above, we can suspect that there would be less accessibility to healthcare system in the Islamic communities. 
 
-To sum up, all of variables pointed same thing: need for more healthcare system in 1987 Thailand, or unbalance of healthcare system between regions, communities, cities, and religion. Furthermore, from some variables such as education level, we could find that some specific groups would not believe healthcare system 100%.
+To sum up, all of variables pointed same direction: need for better healthcare system in 1987 Thailand, or unbalance of healthcare system between regions, communities, cities, and religion. Moreover, from some variables such as education level, we could find that some specific groups did not trust the healthcare system 100%. Combining all weakness in healthcare system in Thailand, it presents unexpected result from contemporary thought, which is immunization status was inclined to mother more than healthcare facilities. 
 
 
 # Discussion
@@ -205,17 +205,6 @@ It clearly shows that Thailand, especially in the rural regions in 1987 required
 As WHO claimed gradual improvement in healthcare system in Thailand, analysis of similar survey in recent years will become good indicator whether Thailand government has succeed reformation of healthcare system or not. Furthermore, with the analysis, we will be able to observe which is needed further support or not. Current Thailand has been experiencing exponential growth in economics, following that we expect that the healthcare system has been improved much. 
 
 \newpage
-
-\appendix
-
-# Appendix {-}
-
-
-# Additional details
-
-
-\newpage
-
 
 # References
 https://www.statista.com/statistics/455942/urbanization-in-thailand/
