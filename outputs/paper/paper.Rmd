@@ -199,9 +199,10 @@ It clearly shows that Thailand, especially in the rural regions in 1987 required
 
 ## Weaknesses 
 * Dataset does not have wide variety of information, more categories such as more variety on religion, additional information such as household income, number of hospitals in each region, and how easy to access to those hospitals, especially for rural areas, with worse public transportation.
-* Dataset contained some errors where the dataset which is in percentage, does not add up to 100% when it is supposed to.
-## Next steps for future 
+* Dataset contained some errors where the dataset which is in percentage, does not add up to 100% when it is supposed to. Therefore, accuracy of analysis is not perfect. 
 
+## Next steps for future 
+As WHO claimed gradual improvement in healthcare system in Thailand, analysis of similar survey in recent years will become good indicator whether Thailand government has succeed reformation of healthcare system or not. Furthermore, with the analysis, we will be able to observe which is needed further support or not. Current Thailand has been experiencing exponential growth in economics, following that we expect that the healthcare system has been improved much. 
 
 \newpage
 
