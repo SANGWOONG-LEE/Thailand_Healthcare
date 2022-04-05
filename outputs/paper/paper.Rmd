@@ -109,7 +109,6 @@ population %>%
 ```
 
 ```{r fig2,echo=FALSE, fig.cap = "Immunization cases between communities"}
-#ggplot(data[1:2,], aes(x = Variable, y = Health_Record)) + geom_bar(stat='identity') + facet_wrap(~Mothers_Report)
 urban_rural %>%
   ggplot(aes(x = immune_status, y = value, fill = Variable)) +
   geom_bar(stat='identity', position = "dodge") +
@@ -122,7 +121,6 @@ urban_rural %>%
 ```
 
 ```{r fig3,echo=FALSE, fig.cap = "Immunization cases between region"}
-#ggplot(data[3:7,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 region %>%
   ggplot(aes(x = Variable, y = value, fill = immune_status)) +
   geom_bar(stat='identity', position = "dodge") +
@@ -135,7 +133,6 @@ region %>%
 ```
 
 ```{r fig4,echo=FALSE, fig.cap = "Immunization cases between education"}
-#ggplot(data[8:11,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 education %>%
   ggplot(aes(x = Variable, y = value, fill = immune_status)) +
   geom_bar(stat='identity', position = "dodge") +
@@ -148,7 +145,6 @@ education %>%
 ```
 
 ```{r fig5,echo=FALSE, fig.cap = "Immunization cases between religion"}
-#ggplot(data[12:13,], aes(x = Variable, y = Health_Record, fill = Variable)) + geom_bar(stat='identity')
 religion %>%
   ggplot(aes(x = immune_status, y = value, fill = Variable)) +
   geom_bar(stat='identity', position = "dodge") +

@@ -16,7 +16,6 @@ get_data <- function(text){
   
   immune_data <- immune_data[-c(1:7),]
   immune_data <- immune_data[-c(19:20),]
-  #immune_data <- extract(immune_data, raw_text, into=c('v1', 'v2'), '(\\d+)(\\D+)', convert=TRUE)
   
   # Split columns
   immune_data <-
@@ -38,10 +37,7 @@ get_data <- function(text){
     )
   
   immune_data <- immune_data[complete.cases(immune_data),] |> 
-    #select("Health_Record", "Mother's_Report", "Received_Immunization", "Not_Received_Immunization", "Total_Percent", "Number_of_Children") |>
     mutate_at(vars(Health_Record, Mothers_Report, Received_Immunization, Not_Received_Immunization, Total_Percent, Number_of_Children), ~str_remove_all(., ",")) |>
-    #mutate_at(vars(Health_Record, Mothers_Report, Received_Immunization, Not_Received_Immunization, Total_Percent, Number_of_Children), ~str_replace(., "_", "0")) |>
-    #mutate_at(vars(Health_Record, Mothers_Report, Received_Immunization, Not_Received_Immunization, Total_Percent, Number_of_Children), ~str_replace(., "-", "0")) |>
     mutate_at(vars(Health_Record, Mothers_Report, Received_Immunization, Not_Received_Immunization, Total_Percent, Number_of_Children), ~as.double(.))
   
   immune_data[8, 1] = "No Education"
